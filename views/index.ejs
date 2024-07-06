@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Web App</title>
+</head>
+<body>
+    <!-- new post: -->
+    <form action="/post" method="POST">
+        <label>new post:</label>
+        <input type="text" name="post-content" placeholder="write your post here" required>
+        <input type="text" name="post-author" placeholder="your name">
+        <input type="submit" value="post">
+    </form>
+
+
+
+    <!-- old posts -->
+     <div id="old-posts">
+    <% if (locals.posts) {%>
+        <% posts.forEach(post => { %>
+            <div class="post">
+                <p class="post-content"><%= post.content %></p>
+                <p class="post-author"><%= post.author %></p>
+                <p class="post-date"><%= post.dateCreatd %></p>
+                <form action="/edit" method="PATCH">
+                    <input type="submit" value="edit">
+                </form>
+                <form action="/delete" method="DELETE">
+                    <input type="submit" value="delete">
+                </form>
+            </div>
+
+        <% }); %>
+    <% }; %>
+
+     </div>
+</body>
+</html>
