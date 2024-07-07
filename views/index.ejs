@@ -9,9 +9,10 @@
     <!-- new post: -->
     <form action="/post" method="POST">
         <label>new post:</label>
-        <input type="text" name="post-content" placeholder="write your post here" required>
-        <input type="text" name="post-author" placeholder="your name">
-        <input type="submit" value="post">
+        <input class="new-post-title" type="text" name="post-title" placeholder="post title" required>
+        <input class="new-post-content" type="text" name="post-content" placeholder="write your post here" required>
+        <input class="new-post-author" type="text" name="post-author" placeholder="your name">
+        <input class="post-btn" type="submit" value="post">
     </form>
 
 
@@ -19,20 +20,22 @@
     <!-- old posts -->
      <div id="old-posts">
     <% if (locals.posts) {%>
-        <% posts.forEach(post => { %>
+        <% for (let i = posts.length - 1; i >= 0; i--) { %>
             <div class="post">
-                <p class="post-content"><%= post.content %></p>
-                <p class="post-author"><%= post.author %></p>
-                <p class="post-date"><%= post.dateCreatd %></p>
+                <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+                <p class="post-title"><%= posts[i].title %></p>
+                <p class="post-content"><%= posts[i].content %></p>
+                <p class="post-details">written by: <%= posts[i].author %> at: <%= posts[i].dateCreatd %></p>
                 <form action="/edit" method="PATCH">
-                    <input type="submit" value="edit">
+                    <input class="edit-btn" type="submit" value="edit">
                 </form>
                 <form action="/delete" method="DELETE">
-                    <input type="submit" value="delete">
+                    <input class="delete-btn" type="submit" value="delete">
                 </form>
+                <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
             </div>
 
-        <% }); %>
+        <% }; %>
     <% }; %>
 
      </div>
