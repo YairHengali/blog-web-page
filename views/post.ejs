@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="post">
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        <p class="post-title"><%= post.title %></p>
+        <p class="post-content"><%= post.content %></p>
+        <p class="post-details">written by: <%= post.author %> at: <%= post.dateCreatd %></p>
+        <button onclick="location.href='/posts/<%=post.id%>/edit'">Edit</button>
+        <!-- <a href="/your-link" class="button">Go to Page</a> THIS IS A BETTER SOLUTION THEN BUTTON --> 
+
+        <form action="/posts/<%=post.id%>/delete?_method=DELETE" method="POST">
+            <!-- <input type="hidden" name="_method" value="DELETE"> -->
+            <input class="delete-btn" type="submit" value="delete">
+        </form>
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+    </div>
+</body>
+</html>

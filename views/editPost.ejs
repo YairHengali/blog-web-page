@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="post">
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        <p class="post-title"><%= post.title %></p>
+        <form action="/posts/<%=post.id%>/save?_method=PATCH" method="POST">
+            <input type="hidden" name="_method" value="PATCH">
+            <textarea class="new-post-content" type="text" name="post-content" placeholder="write your post here" required><%=post.content%></textarea>
+            <input class="save-btn" type="submit" value="save">
+        </form>
+        <p class="post-details">written by: <%= post.author %> at: <%= post.dateCreatd %></p>
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+    </div>
+</body>
+</html>
