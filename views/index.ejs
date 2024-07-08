@@ -27,7 +27,7 @@
                 <p class="post-content"><%= posts[i].content %></p>
                 <p class="post-details">written by: <%= posts[i].author %> at: <%= posts[i].dateCreatd %></p>
                 <form action="/edit" method="PATCH">
-                    <input class="edit-btn" type="submit" value="edit">
+                    <input class="edit-btn" type="submit" value="edit"> <!-- todo: MAYBE: when i click edit, i can have the ind i -->
                 </form>
                 <form action="/delete" method="DELETE">
                     <input class="delete-btn" type="submit" value="delete">
