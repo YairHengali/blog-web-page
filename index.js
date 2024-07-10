@@ -42,7 +42,6 @@ app.get("/posts/:id/edit", (req, res) => {
 });
 
 app.patch("/posts/:id/save", (req, res) => {
-    console.log("YOU GOT HERE!");
     const postID = req.params.id;
     let requiredPost = allPosts.find(post => post.id == postID);
     if(requiredPost){

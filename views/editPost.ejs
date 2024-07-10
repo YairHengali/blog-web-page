@@ -10,7 +10,6 @@
         <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
         <p class="post-title"><%= post.title %></p>
         <form action="/posts/<%=post.id%>/save?_method=PATCH" method="POST">
-            <input type="hidden" name="_method" value="PATCH">
             <textarea class="new-post-content" type="text" name="post-content" placeholder="write your post here" required><%=post.content%></textarea>
             <input class="save-btn" type="submit" value="save">
         </form>
