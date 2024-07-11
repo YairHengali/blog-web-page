@@ -1,31 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Web App</title>
-</head>
-<body>
-    <!-- new post: -->
-    <h2>Write new post:</h2>
+<%- include("./partials/header.ejs") %>
+
+<!-- new post: -->
+<div id="new-post" class="container">
+    <h2 class="mb-3">Write new post:</h2>
     <form action="/" method="POST">
-        <input class="new-post-title" type="text" name="post-title" placeholder="post title" required>
-        <textarea rows="20" cols="50" class="new-post-content" type="text" name="post-content" placeholder="write your post here" required></textarea>
-        <input class="new-post-author" type="text" name="post-author" placeholder="your name">
-        <input class="post-btn" type="submit" value="post">
+        <input class="new-post-title form-control form-control-lg mb-3" type="text" name="post-title" placeholder="post title" required>
+        <textarea rows="4" class="new-post-content form-control mb-3" type="text" name="post-content" placeholder="write your post here" required></textarea>
+        <input class="new-post-author form-control mb-3" type="text" name="post-author" placeholder="your name">
+        <input class="post-btn btn btn-primary" type="submit" value="post">
     </form>
+</div>
 
-    <!-- old posts -->
-     <div id="posts-titles">
+<!-- old posts -->
+<div id="posts-titles" class="container mt-5">
     <% if (locals.posts) {%>
-        <h2>Click a post you would like to read:</h2>
-        <ul>        
-            <% for (let i = posts.length - 1; i >= 0; i--) { %>
-                <li><a href="/posts/<%=posts[i].id %>"><%= posts[i].title %></a></li>
-            <% }; %>
-        </ul>
+        <h2>All posts:</h2>
+        <% if (locals.posts.length === 0){ %>
+            <h4>There are no posts yet</h4>
+        <% }else { %>
+            <ul id="posts-list">        
+                <% for (let i = posts.length - 1; i >= 0; i--) { %>
+                    <li><a href="/posts/<%=posts[i].id %>"><%= posts[i].title %></a></li>
+                <% }; %>
+            </ul>
+        <% }; %>
     <% }; %>
-     </div>
+</div>
 
-</body>
-</html>
+<%- include("./partials/footer.ejs") %>

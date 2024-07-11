@@ -21,7 +21,7 @@ app.post("/", (req, res) => {
         title: req.body["post-title"],
         content: req.body["post-content"],
         author: req.body["post-author"].length === 0 ? "anonimus" : req.body["post-author"],
-        dateCreatd: new Date().toLocaleString()
+        dateCreated: new Date().toLocaleString()
     };
     
     allPosts.push(newPost);

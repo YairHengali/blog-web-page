@@ -1,0 +1,17 @@
+.post-content{
+    font-size: larger;
+}
+
+.post-details{
+    color: cadetblue;
+    font-weight: bold;
+}
+
+#author, #date-created{
+    font-style: italic;
+    font-weight: bold;
+}
+
+#posts-list{
+    color: cadetblue;
+}
