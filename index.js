@@ -45,9 +45,8 @@ app.patch("/posts/:id/save", (req, res) => {
     let requiredPost = allPosts.find(post => post.id == postID);
     if(requiredPost){
         requiredPost.content = req.body["post-content"];
-        res.render("post.ejs", {post: requiredPost});
-    }
-    else{
+        res.redirect(`/posts/${postID}`);
+    } else{
         res.sendStatus(404);
     }
 });
@@ -57,7 +56,7 @@ app.delete("/posts/:id/delete", (req, res) => {
     const deletedPostIndex = allPosts.findIndex(post => post.id == postID);
     if (deletedPostIndex !== -1) {
         allPosts.splice(deletedPostIndex, 1);
-        res.render("index.ejs", {posts: allPosts});
+        res.redirect("/");
     } else {
         res.sendStatus(404);
     }
