@@ -4,7 +4,6 @@ import methodOverride from "method-override"
 const app = express();
 const port = 3000;
 let totalCount = 0;
-
 let allPosts = [];
 
 app.use(methodOverride('_method'));
@@ -46,7 +45,7 @@ app.patch("/posts/:id/save", (req, res) => {
     let requiredPost = allPosts.find(post => post.id == postID);
     if(requiredPost){
         requiredPost.content = req.body["post-content"];
-        res.render("post.ejs", {post: requiredPost})
+        res.render("post.ejs", {post: requiredPost});
     }
     else{
         res.sendStatus(404);
@@ -65,5 +64,5 @@ app.delete("/posts/:id/delete", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
+    console.log(`Server is running on port ${port}`);
 });
